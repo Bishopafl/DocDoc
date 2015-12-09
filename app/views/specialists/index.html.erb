@@ -1,14 +1,27 @@
 <div class="container-fluid specialist-page">
-	<div class="row nav-bar"> <!-- top nav bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+	 <div class="pull-right">
+				
+				<a href="/users/sign_in" class="btn btn-primary">
+					Sign In
+				</a>
+				<a href="/users/sign_up" class="btn btn-primary">
+					Sign up
+				</a>
+				<a href="/forums" class="btn btn-primary">
+					Forum
+				</a>
+			</div>
+	</nav>
+	<div class="dr-list-map">
+		<div class="col-sm-4 doctor-list">
+			<h3>Doc Doc... Who's there?</h3>
+			<form action="/specialists">
+				<input class="js-search-bar" type="text" name="search-bar" placeholder="Search conditions">
+			</form>
+			<ul class="js-dr-list">
+			</ul>
+		</div>
+		<div id="map" class="col-sm-8 maps-api">
+		</div>
 	</div>
-	<form action="/specialists">
-		<input class="js-search-bar" type="text" name="search-bar" placeholder="Search conditions">
-	</form>
-	<div class="col-sm-4 doctor-list">
-		<ul class="js-dr-list">
-
-		</ul>
-	</div>
-	<div id="map" class="col-sm-8 maps-api">
-	</div>
-	
