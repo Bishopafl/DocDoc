@@ -55,11 +55,12 @@ function createMap(position) {
 var infowindow;
 
 function doctorMarker(position){
+	var query_string = getUrlVars();
 	var latcoord = position.lat;
 	var lngcoord = position.lng;
 	var userlatlng = (latcoord, lngcoord)
 	var api_key = "66b0850367645bf27af70b06c3979f7f"
-	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?location='+latcoord+','+lngcoord+',200&skip=0&limit=10&user_key=' + api_key;
+	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
 	infowindow = new google.maps.InfoWindow();
 
 	$.ajax({
@@ -118,16 +119,16 @@ function createMarker(position) {
 
 
 function searchApi (position) {
+	var query_string = getUrlVars();
 	var latcoord = position.lat;
 	var lngcoord = position.lng;
 	var api_key = "66b0850367645bf27af70b06c3979f7f"
-	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
+	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
 
 	$.ajax({
 		url: resource_url,
 		success: function (response){
 			displayDoctors(response)
-			searchForConditions()
 		},
 		error: function(err){
 			console.log("not working bro");
@@ -163,5 +164,18 @@ function displayDoctors (response) {
 		$(".js-dr-list").append(html);
 		
 	});
+}
+
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
 

@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #map {
 	height: 100vh;
+
+}
+
+.specialist-page {
+  padding: 0;
 }
 
 .hover-area {
@@ -26,4 +31,10 @@
 
 .hover-area:hover > .hover-box {
   display: block;
+}
+
+.doctor-list {
+  height: 100vh;
+  overflow-y: scroll;
+
 }
