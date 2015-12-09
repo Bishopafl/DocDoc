@@ -30,9 +30,23 @@
 					<h1 class="logo-text">Eldercated</h1>
 				</div>
 				<div class="search-bar-box">
-					<form action="/specialists">
+					<!-- <form action="/specialists">
 						<input class="js-search-bar" type="text" name="search-bar" placeholder="Search conditions">
-					</form>
+					</form> -->
+					<div class="dropdown">
+					  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Specialities list:
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dLabel">
+					    <div>
+					    	<ul class="list">
+					    		<li class="js-specialist-list">
+					    		</li>
+					    	</ul>
+					    </div>
+					  </ul>
+					</div>
 				</div>
 			</div>
 			<div>
