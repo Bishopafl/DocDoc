@@ -22,10 +22,15 @@ function searchForCondtions(search){
 }
 
 function displaySpecialties (drs){
-	drs.data.forEach(function (){
-		var speciality = drs.specialties[0].description;
-		var html = "
-		"
+console.log('hello')
+	drs.data.forEach(function(dr){
+		console.log(dr)
+		var speciality = dr.specialties[0].description;
+		var html = "\
+		<li>\
+			<span>" + speciality + "</span>\
+		</li>";
 
+		$(".js-specialist-list").append(html)
 	});
 }

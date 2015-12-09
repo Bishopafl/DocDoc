@@ -135,9 +135,6 @@ function searchApi (position) {
 	});
 }
 
-var translate = {
-	headache: ["nephrologist"]
-}
 function displayDoctors (response) {
 	response.data.forEach(function(dr){
 		var name = dr.profile.first_name + " " + dr.profile.last_name;
