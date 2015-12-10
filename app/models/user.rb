@@ -4,12 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-def forem_name
-  name
-end
+	has_many :forum_threads
+	has_many :forum_post
 
-def forem_email
-  email
-end
+
+	validates :name, presence: true
+
+
 
 end

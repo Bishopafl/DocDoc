@@ -164,7 +164,7 @@ function displayDoctors (response) {
 		$(".js-dr-list").append(html);
 		$(".js-image").on("click", function (){
 			// code to show dr on map 
-			doctorMarker(myPosition)
+			
 		})
 		
 	});

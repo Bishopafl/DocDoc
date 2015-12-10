@@ -1,0 +1,10 @@
+<h1>Add a new Thread</h1>
+
+<h3>Type your subject</h3>
+
+<%= form_for [@new_thread] do |f| %>
+	<div>	
+		<%= f.label :subject  %>
+		<%= f.text_field :subject %>
+	</div>
+<% end %>
