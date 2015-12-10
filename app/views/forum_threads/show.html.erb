@@ -5,8 +5,17 @@
 	<% @thread.forum_posts.each do |pst| %>
 	<li>
 		<%= pst.body %>
+		<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>/edit">
+			Edit post
+		</a>
+		<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>"
+			data-method="delete"
+			data-confirm="Would you like to delete this post?">
+			Delete post
+		</a>
 	</li>
 	<%end%>
 </ul>
 
 <a href="/forum_threads/<%=@thread.id%>/forum_posts/new">Create a new post</a>
+
