@@ -1,0 +1,12 @@
+<h1>Forum for:</h1>
+
+<h2><%= @thread.subject %></h2>
+<ul>
+	<% @thread.forum_posts.each do |pst| %>
+	<li>
+		<%= pst.body %>
+	</li>
+	<%end%>
+</ul>
+
+<a href="/forum_threads/<%=@thread.id%>/forum_posts/new">Create a new post</a>

@@ -1,0 +1,8 @@
+<h1>Add a new Post</h1>
+
+<%= form_for [@forum_list, @new_post] do |p| %>
+	<div>
+		<%= p.label "Post body:" %>
+		<%= p.text_field :body %>
+	</div>
+<%end%>

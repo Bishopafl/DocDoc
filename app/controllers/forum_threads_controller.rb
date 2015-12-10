@@ -24,6 +24,18 @@ class ForumThreadsController < ApplicationController
 
 	end
 
+	def show
+		thread_id = params[:id]
+
+		@thread = ForumThread.find_by(id: thread_id)
+
+		if @thread == nil
+			redirect_to('/404')
+		else
+			render('show')
+		end
+	end
+
 		private
 
 		def thread_params

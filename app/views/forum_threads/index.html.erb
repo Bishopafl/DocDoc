@@ -1,4 +1,4 @@
-<h1>Doc Doc, who's there Forum</h1>
+<h1>Doc Doc Forum</h1>
 
 <a href="/forum_threads/new">Create a new subject</a>
 
@@ -8,10 +8,9 @@
 <ul>
 	<% @thread_list.each do | th | %>
 		<li class="thread_list">
-			<a href="/forum_threads/<%=th.id%>" >
+			<a href="/forum_threads/<%=th.id%>/" >
 				<%=th.subject %>
 			</a>
 		</li>
 	<%end%>
-	<a href="/forum_threads/"></a>
 </ul>

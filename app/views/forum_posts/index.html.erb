@@ -1,0 +1,9 @@
+<h1>Enter a post for <%=@forum_thread.subject%></h1>
+
+<ul>
+	<% @forum_posts.each do | p | %>
+		<li>
+			<%=p.body%>
+		</li>
+	<%end%>
+</ul>

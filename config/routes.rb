@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
 	resources :dashboards
   resources :symptoms
-  resources :forum_threads
-  resources :forum_posts
+  
+  resources :forum_threads do
+    resources :forum_posts
+  end
 
 end
