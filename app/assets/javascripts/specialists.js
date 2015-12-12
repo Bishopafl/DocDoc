@@ -183,7 +183,3 @@ function getUrlVars()
     }
     return vars;
 }
-
-$(window).load(function() {
-      alert('Loading results');
-});
