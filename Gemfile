@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-# lines 4 and 5 are for the forum
+
+gem 'rails_12factor', group: :production #for productions to a site like heroku
+
 gem 'devise'
 
 gem "twitter-bootstrap-rails"
