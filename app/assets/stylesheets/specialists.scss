@@ -12,7 +12,8 @@ body {
  
 
 .js-dr-list {
-  background-color:gray
+  background-color: white;
+  border-radius: 5px;
 }
 
 .specialist-page {
@@ -45,10 +46,15 @@ body {
 .doctor-list {
   height: 100vh;
   overflow-y: scroll;
-
+  background-color: #DDE6D5;
+  
 }
 
-.side-drs {
-  background-color: gray;
-  z-index: 1;
+.map-srch-btn {
+  box-shadow: 10px 10px 5px black;
+}
+
+.dr-info-text {
+  color: black;
+  padding-top: 10px;
 }

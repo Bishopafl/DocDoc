@@ -33,7 +33,7 @@ function createMap(position) {
 
 	var mapOptions = {
 		center: position,
-		zoom: 13
+		zoom: 10
 	};
 	map = new google.maps.Map($('#map')[0], mapOptions);
 	var marker = createMarker(position);
@@ -152,15 +152,16 @@ function displayDoctors (response) {
 		var html = '\
 			<li class="side-drs">\
 				<h3>'+ name +'</h3>\
-				<span><strong>' + speciality + '</strong></span>\
+				<span class="side-speciality"><strong>' + speciality + '</strong></span>\
 				<br>\
-				<div>' + description + '<div>\
+				<div class="side-description">' + description + '<div>\
 				<br>\
 				<div class="hover-area">\
-				<img id="'+dr.uid+'" src='+ picture +'>\
-				<div class="hover-box">' + bio + '</div>\
+				<img id="'+dr.uid+'" class="doc-pic" src='+ picture +'>\
 				</div>\
+				<span>Click Image for Doctor Location</span>\
 				<br>\
+				<span>-------------------------------</span>\
 			</li>';
 			
 		$(".js-dr-list").append(html);
@@ -183,3 +184,6 @@ function getUrlVars()
     return vars;
 }
 
+$(window).load(function() {
+      alert('Loading results');
+});

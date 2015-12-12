@@ -8,13 +8,13 @@
 </head>
 <body>
 	<div class="nav-bar">
-		<nav class="navbar navbar-default navbar-fixed-top row">
-			<div class="col-sm-4">
+		<nav class="navbar navbar-inverse navbar-fixed-top row">
+			<div class="col-sm-4 login-logout-btns">
 		 		<% if user_signed_in? %>
-					<%= link_to("Log out", "/users/sign_out" , class: "btn btn-primary", method: "delete") %>
+					<%= link_to("Log out", "/users/sign_out" , class: "btn btn-default", method: "delete") %>
 				<% else %>
-			 		<%= link_to "Login", "/users/sign_in", class: "btn btn-primary" %>
-			 		<%= link_to "Sign up", "/users/sign_up", class: "btn btn-primary" %>
+			 		<%= link_to "Login", "/users/sign_in", class: "btn btn-default" %>
+			 		<%= link_to "Sign up", "/users/sign_up", class: "btn btn-default" %>
 				<% end %>
 		 	</div>
 
@@ -28,7 +28,7 @@
 				<% end %>	
 			</div>
 			<div class="col-sm-4 forum-btn">
-				<a href="/forum_threads" class="btn btn-primary forum-btn">
+				<a href="/forum_threads" class="btn btn-default forum-btn">
 					Forum
 				</a>
 			</div>

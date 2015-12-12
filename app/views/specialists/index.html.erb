@@ -1,15 +1,20 @@
 <div class="container-fluid specialist-page">
 	<div class="dr-list-map">
 		<div class="col-sm-4 doctor-list">
-			<h3>Doc Doc... Who's there?</h3>
+			<h3 class="logo-map">Doc Doc... Who's there?</h3>
 			<form action="/specialists">
-				<input class="js-search-bar" type="text" name="search-bar" placeholder="Search conditions">
+				<div class="input-group search-bar-map">
+					<input type="text" class="form-control" placeholder="Find Doctors by Your Condition...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					</span>
+	 			</div>
 			</form>
-			<ol class="js-dr-list">
+			<ol class="js-dr-list dr-info-text">
 			</ol>
 		</div>
 	</div>
-
+	
 	<div id="map" class="col-sm-8 maps-api">
 	</div>
 	

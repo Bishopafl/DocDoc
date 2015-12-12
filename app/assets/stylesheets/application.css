@@ -26,9 +26,15 @@ body {
 
 .forum-btn {
 	float: right;
+	margin-top: 4px;
 }
 
 .search-box {
 	text-align: center;
 	padding-top: 10px;	
+}
+
+
+.login-logout-btns {
+	margin-top: 9px;
 }
