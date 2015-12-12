@@ -9,9 +9,10 @@
 body {
   padding-top: 50px;
 }
+ 
 
-.dr-list-map {
-
+.js-dr-list {
+  background-color:gray
 }
 
 .specialist-page {
@@ -45,4 +46,9 @@ body {
   height: 100vh;
   overflow-y: scroll;
 
+}
+
+.side-drs {
+  background-color: gray;
+  z-index: 1;
 }

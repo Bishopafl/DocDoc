@@ -2,7 +2,8 @@ class ForumThreadsController < ApplicationController
 	before_action :authenticate_user!, except: ["index"]
 
 	def index
-		@thread_list = ForumThread.all
+		@user = current_user
+		@thread_list = ForumThread.order(created_at: :desc)
 		render "index"
 	end
 
@@ -15,6 +16,7 @@ class ForumThreadsController < ApplicationController
 		thread_id = params[:id]
 
 		@thread = ForumThread.new(thread_params)
+		@thread.user = current_user
 
 		if @thread.save == nil
 			redirect_to('/404')

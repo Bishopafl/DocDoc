@@ -1,4 +1,5 @@
 class ForumPostsController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		forum_id = params[:forum_thread_id]
@@ -46,6 +47,7 @@ class ForumPostsController < ApplicationController
 					if @forum_post == nil
 						redirect_to('/404')
 					else
+						@thread.user = current_user
 						render("edit")
 					end
 			end

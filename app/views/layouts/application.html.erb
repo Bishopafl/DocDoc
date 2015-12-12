@@ -7,6 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="nav-bar">
+		<nav class="navbar navbar-default navbar-fixed-top row">
+			<div class="col-sm-4">
+		 		<% if user_signed_in? %>
+					<%= link_to("Log out", "/users/sign_out" , class: "btn btn-primary", method: "delete") %>
+				<% else %>
+			 		<%= link_to "Login", "/users/sign_in", class: "btn btn-primary" %>
+			 		<%= link_to "Sign up", "/users/sign_up", class: "btn btn-primary" %>
+				<% end %>
+		 	</div>
+
+			<div class="col-sm-4 search-box">
+				<% if current_page?("/forum_threads") %>
+		 			<form action="/specialists">
+						<input class="js-search-bar" type="text" name="search-bar" placeholder="Search conditions">
+					</form>
+				<% else %>
+					<div class="col-sm-4 empty box"></div>
+				<% end %>	
+			</div>
+			<div class="col-sm-4 forum-btn">
+				<a href="/forum_threads" class="btn btn-primary forum-btn">
+					Forum
+				</a>
+			</div>
+		</nav>
+	</div>
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>

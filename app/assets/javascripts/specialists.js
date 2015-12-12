@@ -1,13 +1,4 @@
 	if ($('.container-fluid').hasClass('specialist-page')){
-	function gotPosition (currentPos) {
-		var latText = "Latitude: " + currentPos.coords.latitude;
-		var longText = "Longitude: " + currentPos.coords.longitude;
-		$(".js-lat").text(latText)
-		$(".js-long").text(longText)
-
-		$(".js-coords").fadeIn();
-		$(".js-loading-text").fadeOut();
-	}
 	function positionError () {
 		$(".js-loading-text").fadeOut();
 		$(".js-position-error").fadeIn();
@@ -33,7 +24,7 @@ function onLocation(position) {
 
 	createMap(myPosition);
 	searchApi(myPosition);
-	doctorMarker(myPosition)
+	doctorMarker(myPosition);
 	// add dr location to map 
 }
 
@@ -45,7 +36,8 @@ function createMap(position) {
 		zoom: 13
 	};
 	map = new google.maps.Map($('#map')[0], mapOptions);
-	createMarker(position)
+	var marker = createMarker(position);
+	marker.setIcon("http://www.google.com/mapfiles/arrow.png");
 }
 
 	function onError(err) {
@@ -53,6 +45,7 @@ function createMap(position) {
 }
 
 var infowindow;
+var doctorMarker;
 
 function doctorMarker(position){
 	var query_string = getUrlVars();
@@ -81,10 +74,12 @@ function doctorMarker(position){
 				
 				var marker = createMarker(latlngPos)
 
+				doctorMarker[name] = marker
+
 				google.maps.event.addListener(marker, "click", function() {
 					var html = '\
 						<h5>'+name+'</h5>\
-						<img class="image" src='+ picture +'>\
+						<img class="image" height="100" width="100" src='+ picture +'>\
 						<br>\
 						<span>'+ 'Contact: '+ phone +'</span>\
 						<div class="address">\
@@ -97,6 +92,8 @@ function doctorMarker(position){
 						</span>\
 						</div>\
 						';
+
+					map.setCenter(marker.getPosition());
 					infowindow.setContent(html);
 					infowindow.open(map, this);
 				})
@@ -148,25 +145,28 @@ function displayDoctors (response) {
 		var state = dr.practices[0].visit_address.state;
 		var zip = dr.practices[0].visit_address.zip;
 		var speciality = dr.specialties[0].actor;
+		var description = dr.specialties[0].description;
 		var bio = dr.profile.bio;
+		var lati = dr.practices[0].lat;
+		var longi = dr.practices[0].lon;
 		var html = '\
-			<li>\
+			<li class="side-drs">\
 				<h3>'+ name +'</h3>\
 				<span><strong>' + speciality + '</strong></span>\
 				<br>\
+				<div>' + description + '<div>\
+				<br>\
 				<div class="hover-area">\
-				<img class="js-image" src='+ picture +'>\
+				<img id="'+dr.uid+'" src='+ picture +'>\
 				<div class="hover-box">' + bio + '</div>\
 				</div>\
 				<br>\
 			</li>';
 			
 		$(".js-dr-list").append(html);
-		$(".js-image").on("click", function (){
-			// code to show dr on map 
-			
+		$("#"+dr.uid).on("click", function (){
+			google.maps.event.trigger(doctorMarker[name], 'click');
 		})
-		
 	});
 }
 
