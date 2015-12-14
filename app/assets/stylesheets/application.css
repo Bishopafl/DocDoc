@@ -28,12 +28,15 @@ body {
 	position: inherit;
 	margin-top: 7px;
 	margin-bottom: 15px;
+	margin-left: 55%;
 	
 }
 
 .search-box {
 	text-align: center;
 	padding-top: 15px;
+	margin-left: -5px;
+
 } 
 
 .login-logout-btns {
@@ -45,6 +48,7 @@ body {
 .logo-img {
 	width: 200px;
 	margin-top: -20px;
+	margin-left: 70%;
 }
 
 .alert {

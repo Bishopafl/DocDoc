@@ -1,13 +1,6 @@
 // Place all the styles related to the Forum_threads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.user-mail,
-.subject-link {
-
-	float: right;
-}
-
-
 
 .thread-list {
 	border: 3px solid black;
@@ -42,4 +35,24 @@
 	float: right;
 	font-size: 75%;
 	
+}
+
+.forum-logo-img {
+	width: 300px;
+}
+
+.forum-logo {
+	text-align: center;
+	margin-top: 15px;
+}
+
+
+.top-user-mail {
+	font-size: 150%;
+	float: right;
+}
+
+.subject-link {
+	float: right;
+	font-size: 150%;
 }

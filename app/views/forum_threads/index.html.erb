@@ -1,20 +1,29 @@
-<h1 class="page-head">Doc Doc Forum</h1>
+<div class="forum-logo">
+	<a href="/">
+		<%= image_tag "docdocpng.png", class: "forum-logo-img" %>
+	</a>
+</div>
+
+<!-- <h1 class="page-head">Doc Doc Forum</h1> -->
 
 <% if user_signed_in? %>
-<div class="user-mail">
+<div class="top-user-mail">
 	Welcome <%= @user.email %>
 </div>
+<br>
 <br>
 <% end %>
 
 <div>
 	<a href="/forum_threads/new" class="subject-link" role="button">
-		New Subject
+		Create New Thread
 	</a>
 </div>
 
+<br>
+
 <div class="current-threads">
-	Current Threads:
+	Forum Threads:
 </div>
 <ul class="thread-list">
 	<% @thread_list.each do | th | %>
