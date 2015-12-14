@@ -38,3 +38,8 @@ body {
 .login-logout-btns {
 	margin-top: 9px;
 }
+
+.logo-img {
+	width: 300px;
+	text-align: center;
+}

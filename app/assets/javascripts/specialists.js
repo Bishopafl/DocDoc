@@ -33,7 +33,7 @@ function createMap(position) {
 
 	var mapOptions = {
 		center: position,
-		zoom: 10
+		zoom: 12
 	};
 	map = new google.maps.Map($('#map')[0], mapOptions);
 	var marker = createMarker(position);

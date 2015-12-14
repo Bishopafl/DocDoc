@@ -14,14 +14,22 @@
 </div>
 
 <div class="current-threads">
-	Current threads:
+	Current subjects:
 </div>
 <ul class="thread-list">
 	<% @thread_list.each do | th | %>
 		<li class="thread_list">
-			<a href="/forum_threads/<%=th.id%>/" >
+			<div class="subject">	
+				<a href="/forum_threads/<%=th.id%>/" class="subject-text">
 				<%=th.subject %>
-			</a>
+				<div class="user-email">
+				by: <%= th.user.email %>
+				</div>
+				</a>
+				<span class="time-thread-made">
+					Time created:<%= th.user.created_at %>
+				</span>
+			</div>
 		</li>
 	<%end%>
 </ul>
