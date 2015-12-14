@@ -23,6 +23,5 @@ class SymptomsController < ApplicationController
 		# end
 	end
 
-	def 
 
 end
