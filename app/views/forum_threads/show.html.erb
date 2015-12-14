@@ -1,23 +1,39 @@
-<h1>Forum for:</h1>
-
-<h2><%= @thread.subject %></h2>
-<ul>
-	<% @thread.forum_posts.each do |pst| %>
-	<li>
-		<%= pst.body %>
-		<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>/edit">
-			Edit post
+<div class="container">
+	<div class="row thread-button">
+		<a href="/forum_threads" class="pull-right btn btn-default">
+			< Forum Threads
 		</a>
-		<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>"
-			data-method="delete"
-			data-confirm="Would you like to delete this post?">
-			Delete post
-		</a>
-	</li>
-	<%end%>
-</ul>
+	</div>
+	<div class="row">
+		<h1>Forum for:</h1>
 
-<a href="/forum_threads/<%=@thread.id%>/forum_posts/new">Create a new comment</a>
-<br>
-<a href="/forum_threads">Forum Threads</a>
+		<h2><%= @thread.subject %></h2>
+		<ul>
+			<% @thread.forum_posts.each do |pst| %>
+			<li>
+				<%= pst.body %>
+				<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>/edit">
+					Edit post
+				</a>
+				<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>"
+					data-method="delete"
+					data-confirm="Would you like to delete this post?">
+					Delete post
+				</a>
+			</li>
+			<%end%>
+		</ul>   
+	</div>
+	<div class="row"><h1>Add a new Post</h1></div>
+	<div class="row">
+		<%= form_for [@thread, @new_post] do |p| %>
+			<div class="form-group">
+				<%= p.label "Post comment:" %>
+				<%= p.text_area :body, class: "form-control" %>
+			</div>
+			<button class="btn btn-info" type="submit">Post comment</button>
+		<%end%>
+	</div>
+</div>
+
 

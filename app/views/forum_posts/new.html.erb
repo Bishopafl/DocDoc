@@ -1,8 +1,12 @@
-<h1>Add a new Post</h1>
-
-<%= form_for [@forum_list, @new_post] do |p| %>
-	<div>
-		<%= p.label "Post body:" %>
-		<%= p.text_field :body %>
+<div class="container">
+	<div class="row"><h1>Add a new Post</h1></div>
+	<div class="row">
+		<%= form_for [@forum_list, @new_post] do |p| %>
+			<div class="form-group">
+				<%= p.label "Post comment:" %>
+				<%= p.text_area :body, class: "form-control" %>
+			</div>
+			<button class="btn btn-info" type="submit">Post comment</button>
+		<%end%>
 	</div>
-<%end%>
+</div>

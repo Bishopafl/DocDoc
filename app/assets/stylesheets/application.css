@@ -17,6 +17,10 @@ body {
 	margin: 0;
 }
 
+.document-body {
+	padding-top: 65px;
+}
+
 .admin-btn {
 	display: hidden;
 }

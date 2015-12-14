@@ -5,41 +5,42 @@
 </div>
 
 <!-- <h1 class="page-head">Doc Doc Forum</h1> -->
+<div class="container">
+	<% if user_signed_in? %>
+	<div class="top-user-mail">
+		Welcome <%= @user.email %>
+	</div>
+	<br>
+	<br>
+	<% end %>
 
-<% if user_signed_in? %>
-<div class="top-user-mail">
-	Welcome <%= @user.email %>
-</div>
-<br>
-<br>
-<% end %>
+	<div>
+		<a href="/forum_threads/new" class="subject-link" role="button">
+			Create New Thread
+		</a>
+	</div>
 
-<div>
-	<a href="/forum_threads/new" class="subject-link" role="button">
-		Create New Thread
-	</a>
-</div>
+	<br>
 
-<br>
-
-<div class="current-threads">
-	Forum Threads:
-</div>
-<ul class="thread-list">
-	<% @thread_list.each do | th | %>
-		<li class="thread_list">
-			<div class="subject">	
-				<span class="time-thread-made">
-					Time created:<%= th.user.created_at %>
-				</span>
-				<a href="/forum_threads/<%=th.id%>/" class="subject-text">
-				<%=th.subject %>
-				<div class="user-email">
-				by: <%= th.user.email %>
+	<div class="current-threads">
+		Forum Threads:
+	</div>
+	<ul class="thread-list">
+		<% @thread_list.each do | th | %>
+			<li class="thread_list">
+				<div class="subject">	
+					<span class="time-thread-made">
+						Time created:<%= th.user.created_at %>
+					</span>
+					<a href="/forum_threads/<%=th.id%>/" class="subject-text">
+					<%=th.subject %>
+					<div class="user-email">
+					by: <%= th.user.email %>
+					</div>
+					</a>
+					
 				</div>
-				</a>
-				
-			</div>
-		</li>
-	<%end%>
-</ul>
+			</li>
+		<%end%>
+	</ul>
+</div>

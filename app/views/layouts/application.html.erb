@@ -8,7 +8,7 @@
 </head>
 <body class="document-body">
 	<div class="nav-bar">
-		<nav class="navbar navbar-inverse navbar-fixed-top row">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="col-sm-2 col-sm-offset 2 login-logout-btns">
 		 		<% if user_signed_in? %>
 					<%= link_to("Log out", "/users/sign_out" , class: "btn btn-success", method: "delete") %>

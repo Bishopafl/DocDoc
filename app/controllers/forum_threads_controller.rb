@@ -28,8 +28,10 @@ class ForumThreadsController < ApplicationController
 
 	def show
 		thread_id = params[:id]
+		forum_id = params[:forum_thread_id]
 
 		@thread = ForumThread.find_by(id: thread_id)
+		@new_post = @thread.forum_posts.new
 
 		if @thread == nil
 			redirect_to('/404')
