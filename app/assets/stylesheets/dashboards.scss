@@ -60,7 +60,7 @@
 	text-align: center;
 	color: white;
 	font-size: 200%;
-	text-shadow: 5px 5px 2px black;
+	text-shadow: 5px 5px 8px black;
 }
 
 .dash-logo-img {
@@ -69,5 +69,9 @@
 
 .dash-srch-bar {
 	width: 75%;
-	box-shadow: 6px 6px 5px black;
+	box-shadow: 3px 3px 30px black;
+}
+
+.search-button {
+	box-shadow: 3px 3px 30px black;
 }

@@ -9,7 +9,7 @@
 <body class="document-body">
 	<div class="nav-bar">
 		<nav class="navbar navbar-inverse navbar-fixed-top row">
-			<div class="col-sm-4 login-logout-btns">
+			<div class="col-sm-2 col-sm-offset 2 login-logout-btns">
 		 		<% if user_signed_in? %>
 					<%= link_to("Log out", "/users/sign_out" , class: "btn btn-success", method: "delete") %>
 				<% else %>
@@ -23,18 +23,15 @@
 		 			<form action="/specialists">
 						<input class="js-search-bar" type="text" name="search-bar" placeholder="Search conditions">
 					</form>
-				<% else %>
-					<% if current_page?("/") %>
-						<div class="col-sm-4 empty-box hidden">
-						</div>
-					<% else %>
-						<div class="col-sm-4 logo-box">
-							<%= image_tag "docdocpng.png", class: "logo-img" %>
-						</div>
-					<% end %>	
+				<% elsif !current_page?("/") %>
+						<div class="logo-box">
+							<a href="/">
+								<%= image_tag "docdocpng.png", class: "logo-img" %>
+							</a>
+						</div>	
 				<% end %>	
 			</div>
-			<div class="col-sm-4 forum-btn">
+			<div class="col-sm-1 col-sm-offset-4	 forum-btn" style="float: right;">
 
 				<a href="/forum_threads" class="btn btn-success forum-btn">
 					Forum
