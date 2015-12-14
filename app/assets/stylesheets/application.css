@@ -25,21 +25,25 @@ body {
 }
 
 .forum-btn {
+	position: inherit;
+	margin-top: 7px;
+	margin-bottom: 15px;
 	float: right;
-	margin-top: 4px;
+	
 }
 
 .search-box {
 	text-align: center;
-	padding-top: 10px;	
-}
-
+	padding-top: 15px;
+} 
 
 .login-logout-btns {
-	margin-top: 9px;
+	margin-top: 15px;
+	margin-bottom: 0;
+
 }
 
 .logo-img {
-	width: 300px;
-	text-align: center;
+	width: 200px;
+	margin-top: -20px;
 }

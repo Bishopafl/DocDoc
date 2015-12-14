@@ -50,25 +50,10 @@
 	text-align: center;
 }
 
-.logo-header {
-	text-align: center;
-	top: 40%;
-}
-
-.logo {
-	font-size: 550%;
-	color: white;
-	text-shadow: 5px 5px 2px black; 
-}
-
 .logo-text {
 	font-size: 82px;
 	top:30%;
 	transform: translateX(-25%);
-}
-
-.logo-N-box {
-	background-color: blue;
 }
 
 .phrase {
@@ -76,6 +61,10 @@
 	color: white;
 	font-size: 200%;
 	text-shadow: 5px 5px 2px black;
+}
+
+.dash-logo-img {
+	width: 600px;
 }
 
 .dash-srch-bar {
