@@ -31,9 +31,9 @@ class ForumThreadsController < ApplicationController
 		forum_id = params[:forum_thread_id]
 
 		@thread = ForumThread.find_by(id: thread_id)
-		@new_post = @thread.forum_posts.new
+		@posts = @thread.forum_posts
 
-		if @thread == nil
+		if !@thread
 			redirect_to('/404')
 		else
 			render('show')

@@ -1,4 +1,14 @@
-	if ($('.container-fluid').hasClass('specialist-page')){
+var target = document.getElementById('spinner')
+var spinner = new Spinner().spin()
+target.appendChild(spinner.el)
+
+createMap({ lat: parseFloat("25.7629064"), lng: parseFloat("-80.193075,193075") })
+
+$(document).ajaxSend(function() {
+  // Add spinner to page
+});
+
+if ($('.container-fluid').hasClass('specialist-page')){
 	function positionError () {
 		$(".js-loading-text").fadeOut();
 		$(".js-position-error").fadeIn();
@@ -7,7 +17,7 @@
 
 	if ("geolocation" in navigator) {
 		console.log("geolocation is available!")
-
+		// Display a spinner
 		navigator.geolocation.getCurrentPosition(onLocation, positionError);
 
 	} else {
@@ -21,7 +31,7 @@ function onLocation(position) {
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	};
-
+	spinner.stop();
 	createMap(myPosition);
 	searchApi(myPosition);
 	doctorMarker(myPosition);
@@ -30,7 +40,6 @@ function onLocation(position) {
 
 function createMap(position) {
 	var latlngPos = new google.maps.LatLng([]);
-
 	var mapOptions = {
 		center: position,
 		zoom: 12
@@ -59,6 +68,7 @@ function doctorMarker(position){
 	$.ajax({
 		url: resource_url,
 		success: function(response){
+			// hide the spinner
 			console.log(response)
 			response.data.forEach(function(dr_ptn){
 				var drlatcoord = dr_ptn.practices[0].lat;

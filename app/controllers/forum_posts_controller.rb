@@ -47,7 +47,7 @@ class ForumPostsController < ApplicationController
 					if @forum_post == nil
 						redirect_to('/404')
 					else
-						@thread.user = current_user
+						@forum_posts.user = current_user
 						render("edit")
 					end
 			end

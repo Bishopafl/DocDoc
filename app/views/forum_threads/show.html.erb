@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row thread-button">
 		<a href="/forum_threads" class="pull-right btn btn-default">
-			< Forum Threads
+			 Forum Threads
 		</a>
 	</div>
 	<div class="row">
@@ -9,8 +9,9 @@
 
 		<h2><%= @thread.subject %></h2>
 		<ul>
-			<% @thread.forum_posts.each do |pst| %>
+			<% @posts.each_with_index do |pst, index| %>
 			<li>
+				<%= index %>
 				<%= pst.body %>
 				<a href="/forum_threads/<%=@thread.id%>/forum_posts/<%=pst.id%>/edit">
 					Edit post
@@ -26,7 +27,7 @@
 	</div>
 	<div class="row"><h1>Add a new Post</h1></div>
 	<div class="row">
-		<%= form_for [@thread, @new_post] do |p| %>
+		<%= form_for [@thread, @thread.forum_posts.new] do |p| %>
 			<div class="form-group">
 				<%= p.label "Post comment:" %>
 				<%= p.text_area :body, class: "form-control" %>
