@@ -16,12 +16,11 @@ if ($('.container-fluid').hasClass('specialist-page')){
 
 
 	if ("geolocation" in navigator) {
-		console.log("geolocation is available!")
 		// Display a spinner
 		navigator.geolocation.getCurrentPosition(onLocation, positionError);
 
 	} else {
-		console.log("geolocation is not available.")
+		alert("geolocation is not available.")
 	}
 		
 }
@@ -62,7 +61,7 @@ function doctorMarker(position){
 	var lngcoord = position.lng;
 	var userlatlng = (latcoord, lngcoord)
 	var api_key = "66b0850367645bf27af70b06c3979f7f"
-	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
+	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',200&skip=0&limit=10&user_key=' + api_key;
 	infowindow = new google.maps.InfoWindow();
 
 	$.ajax({
