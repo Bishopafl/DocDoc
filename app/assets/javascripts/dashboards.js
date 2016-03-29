@@ -1,7 +1,9 @@
+// landing page javascript call to the api
+
 function searchForCondtions(search){
 	var $search_bar = $(".js-search-bar").val();
 	alert($search_bar)
-	var api_key = "66b0850367645bf27af70b06c3979f7f"
+	var api_key = "f6518083c37cafdce1f8534f269c9ee7"
 	var resource_url = "https://api.betterdoctor.com/2014-09-12/doctors?query="+ $search_bar +"&skip=0&limit=10&user_key" + api_key;
 
 		$.ajax({
@@ -12,7 +14,7 @@ function searchForCondtions(search){
 				
 			},
 			error: function (err){
-				console.log("Somethings not right.")
+				console.log("Landing search is not working.")
 			}
 		});
 	}

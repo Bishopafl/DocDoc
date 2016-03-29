@@ -1,1 +1,7 @@
-This rails application is a comprehensive web search for doctors based on the users inquired symptom.  There are two API's that are being represented in the app/assets/javascripts.  The first is from <a href="Better Doctors"></a>
+This rails application is a comprehensive web search for doctors based on the users inquired symptom.  There are two API's that are being represented in the app/assets/javascripts.  The first is from Better Doctors API and the second is Google Maps API.  
+
+The original concept I had for this application was to help create awareness to certain diseases primarily found in the elderly.  I felt the more I got to understand how to use AJAX and jQuery to call to various API's that I wanted to reach out to a larger audience.  So I changed my idea to a web search based on a users condition.  
+
+I used a lot of javascript but still I felt like I wasn't showing that I could also understand and utilize server side type of coding also.  So using MVC I created a working forum that allows full user access to creating, editing and deleting posts about doctors they have interacted with from the site.  
+
+There is a working example of this code at docdocwhosthere.herokuapp.com.  

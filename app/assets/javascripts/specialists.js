@@ -1,29 +1,27 @@
+  // Add spinner to page
 var target = document.getElementById('spinner')
 var spinner = new Spinner().spin()
 target.appendChild(spinner.el)
 
 createMap({ lat: parseFloat("25.7629064"), lng: parseFloat("-80.193075,193075") })
 
+// document start
 $(document).ajaxSend(function() {
-  // Add spinner to page
-});
+}); 
 
 if ($('.container-fluid').hasClass('specialist-page')){
 	function positionError () {
 		$(".js-loading-text").fadeOut();
 		$(".js-position-error").fadeIn();
-	}
-
-
+	};
+	// check geolocation
 	if ("geolocation" in navigator) {
-		// Display a spinner
 		navigator.geolocation.getCurrentPosition(onLocation, positionError);
-
 	} else {
 		alert("geolocation is not available.")
-	}
+	};
 		
-}
+};
 
 function onLocation(position) {
 	var myPosition = {
@@ -31,12 +29,12 @@ function onLocation(position) {
 		lng: position.coords.longitude
 	};
 	spinner.stop();
-	createMap(myPosition);
-	searchApi(myPosition);
-	doctorMarker(myPosition);
-	// add dr location to map 
-}
+	createMap(myPosition); //creates the map once geolocation has been found
+	searchApi(myPosition); //searches the API once location is found
+	doctorMarker(myPosition); //puts doctors on map once location is found
+};
 
+// start google map function creation
 function createMap(position) {
 	var latlngPos = new google.maps.LatLng([]);
 	var mapOptions = {
@@ -46,21 +44,43 @@ function createMap(position) {
 	map = new google.maps.Map($('#map')[0], mapOptions);
 	var marker = createMarker(position);
 	marker.setIcon("http://www.google.com/mapfiles/arrow.png");
-}
-
+};
 	function onError(err) {
 		console.log("Your map isn't working...")
-}
+};
 
 var infowindow;
 var doctorMarker;
 
+function createMarker(position) {
+	var marker = new google.maps.Marker({
+		position: position,
+		map: map
+	});
+	return marker;
+};
+
+// google maps function to find the doctors coordinates
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+};
+
+// start doctor marker functions on left side of screen
 function doctorMarker(position){
 	var query_string = getUrlVars();
 	var latcoord = position.lat;
 	var lngcoord = position.lng;
 	var userlatlng = (latcoord, lngcoord)
-	var api_key = "66b0850367645bf27af70b06c3979f7f"
+	var api_key = "f6518083c37cafdce1f8534f269c9ee7"
 	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',200&skip=0&limit=10&user_key=' + api_key;
 	infowindow = new google.maps.InfoWindow();
 
@@ -80,7 +100,6 @@ function doctorMarker(position){
 				var zip = dr_ptn.practices[0].visit_address.zip;
 				var phone = dr_ptn.practices[0].phones[0].number;
 				var picture = dr_ptn.profile.image_url;
-				
 				var marker = createMarker(latlngPos)
 
 				doctorMarker[name] = marker
@@ -101,34 +120,26 @@ function doctorMarker(position){
 						</span>\
 						</div>\
 						';
-
 					map.setCenter(marker.getPosition());
 					infowindow.setContent(html);
 					infowindow.open(map, this);
-				})
+				});
 
 				});
 		},
 		error: function(){
-			console.log("no go bro")
-		}
+			console.log("side bar doctors got lost...")
+		};
 	});
-}
+};
 
-function createMarker(position) {
-	var marker = new google.maps.Marker({
-		position: position,
-		map: map
-	});
-	return marker;
-}
 
 
 function searchApi (position) {
 	var query_string = getUrlVars();
 	var latcoord = position.lat;
 	var lngcoord = position.lng;
-	var api_key = "66b0850367645bf27af70b06c3979f7f"
+	var api_key = "f6518083c37cafdce1f8534f269c9ee7"
 	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
 
 	$.ajax({
@@ -137,14 +148,11 @@ function searchApi (position) {
 			displayDoctors(response)
 		},
 		error: function(err){
-			console.log("not working bro");
+			console.log("API search is not working bro");
 		}
 	});
-}
+};
 
-var translate = {
-	headache: ["nephrologist"]
-}
 function displayDoctors (response) {
 	response.data.forEach(function(dr){
 		var name = dr.profile.first_name + " " + dr.profile.last_name;
@@ -178,17 +186,4 @@ function displayDoctors (response) {
 			google.maps.event.trigger(doctorMarker[name], 'click');
 		})
 	});
-}
-
-function getUrlVars()
-{
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
 }

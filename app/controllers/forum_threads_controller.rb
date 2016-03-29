@@ -45,5 +45,4 @@ class ForumThreadsController < ApplicationController
 		def thread_params
 			params.require(:forum_thread).permit(:subject)
 		end
-
 end
