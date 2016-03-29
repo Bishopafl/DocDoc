@@ -80,8 +80,8 @@ function doctorMarker(position){
 	var latcoord = position.lat;
 	var lngcoord = position.lng;
 	var userlatlng = (latcoord, lngcoord)
-	var api_key = "f6518083c37cafdce1f8534f269c9ee7"
-	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',200&skip=0&limit=10&user_key=' + api_key;
+	var api_key = "66b0850367645bf27af70b06c3979f7f"
+	var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',200&skip=0&limit=10&user_key=' + api_key;
 	infowindow = new google.maps.InfoWindow();
 
 	$.ajax({
@@ -129,7 +129,7 @@ function doctorMarker(position){
 		},
 		error: function(){
 			console.log("side bar doctors got lost...")
-		};
+		}
 	});
 };
 
@@ -139,8 +139,8 @@ function searchApi (position) {
 	var query_string = getUrlVars();
 	var latcoord = position.lat;
 	var lngcoord = position.lng;
-	var api_key = "f6518083c37cafdce1f8534f269c9ee7"
-	var resource_url = 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
+	var api_key = "66b0850367645bf27af70b06c3979f7f"
+	var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?query=' + query_string['search-bar'] + '&location='+latcoord+','+lngcoord+',100&skip=0&limit=10&user_key=' + api_key;
 
 	$.ajax({
 		url: resource_url,
